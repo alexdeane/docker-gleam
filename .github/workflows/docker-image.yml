@@ -17,11 +17,10 @@ jobs:
     - name: Build & Push image
       run: |
         tag=$DOCKER_UN/gleam:$(date +%s)
-        docker build . --file Dockerfile --tag $tag
+        docker build . --file Dockerfile --tag $tag --build-arg GLEAM_VERSION=1.6.2
 
         docker login -u $DOCKER_UN -p $DOCKER_PAT
         docker push $tag
       env:
         DOCKER_PAT: ${{ secrets.DOCKER_PAT }}
         DOCKER_UN: ${{ secrets.DOCKER_UN }}
-        GLEAM_VERSION: 1.6.2
