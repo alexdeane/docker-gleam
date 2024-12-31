@@ -2,7 +2,7 @@
 
 Base docker image for [Gleam](https://gleam.run/) applications
 
-Use in your dockerfiles
+## Usage
 
 ```dockerfile
 FROM adeane43/gleam AS build
