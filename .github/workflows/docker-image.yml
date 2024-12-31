@@ -14,7 +14,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: Build the Docker image
+    - name: Build & Push image
       run: |
         tag=$DOCKER_UN/gleam:$(date +%s)
         docker build . --file Dockerfile --tag $tag
@@ -24,3 +24,4 @@ jobs:
       env:
         DOCKER_PAT: ${{ secrets.DOCKER_PAT }}
         DOCKER_UN: ${{ secrets.DOCKER_UN }}
+        GLEAM_VERSION: 1.6.2
